@@ -1,0 +1,37 @@
+@import '~react-md/src/scss/react-md';
+@include react-md-theme-colors($md-light-blue-500, $md-orange-a-200, false);
+
+.md-text--secondary {
+    color: rgba(0,0,0,0.54) !important;
+}
+
+.md-text {
+    color: rgba(0,0,0,0.87) !important;
+}
+
+.center_text_field {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.titlePage {
+    color: #673ab7;
+}
+
+.successText, #speed-boost-title {
+    color: #3c763d;
+}
+
+#speed-boost {
+    background-color: #dff0d8;
+}
+
+.fixed_width .md-text-field-icon-container {
+    width: 100%;
+}
+
+.fixed_width .md-full-width {
+    width: 40%;
+}

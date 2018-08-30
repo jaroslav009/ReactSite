@@ -1,0 +1,41 @@
+
+.home_container {
+    height: 100vh;
+    /* background-image: -moz-linear-gradient( 90deg, #f3ad2b 0%, #f0be61 100%);
+    background-image: -webkit-linear-gradient( 90deg, #f3ad2b 0%, #f0be61 100%);
+    background-image: -ms-linear-gradient( 90deg, #f3ad2b 0%, #f0be61 100%); */
+    background-image: url(../img/bg.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 30vh;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Maven Pro', sans-serif;
+    overflow-x: hidden;
+}
+
+.home_container p {
+    margin: 8px 0 25px 0;
+    color: #ffffff;
+    font-family: 'Maven Pro', sans-serif;
+    font-size: 18px;
+}
+
+.button_start {
+    padding: 8px 20px;
+    background-color: #f69a73;
+    border-radius: 5px;
+    text-align: center;
+    color: #ffffff;
+    transition: .5s ease;
+}
+
+.button_start:hover {
+    background-color: #d18f14;
+}
+
+.button_start:hover {
+    transition: .5s ease;
+    color: #ffffff
+}
