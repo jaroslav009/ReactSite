@@ -4,6 +4,7 @@ https://way-to-work.herokuapp.com/
 # Warning
 
 If you want to be able to authenticate and authorize open the file router/register.js find this code 
+```
 var transporter = nodemailer.createTransport({
     service: "Gmail",
     auth: {
@@ -14,6 +15,7 @@ var transporter = nodemailer.createTransport({
         rejectUnauthorized: false
     }
 });
+```
 and paste your email and password from email
 
 # node-js-getting-started
