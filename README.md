@@ -8,15 +8,15 @@ If you want to be able to authenticate and authorize open the file router/regist
 var transporter = nodemailer.createTransport({
     service: "Gmail",
     auth: {
-        user: "", // Your email
-        pass: "" // Pass for email
+        user: secretData.email, // Paste your email
+        pass: secretData.password // Paste pass for email
     },
     tls: {
         rejectUnauthorized: false
     }
 });
 ```
-and paste your email and password from email
+and then paste your email and password from email
 
 ## Running Locally
 
