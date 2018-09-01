@@ -1,10 +1,6 @@
 # ReactSite
 https://way-to-work.herokuapp.com/
-<<<<<<< HEAD
-dqwqdwqwd
-=======
 
->>>>>>> c09bfaaf24187fcb31b60bdd2a7d252a640f3629
 # Warning
 
 If you want to be able to authenticate and authorize open the file router/register.js find this code 
