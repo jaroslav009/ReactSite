@@ -113,7 +113,6 @@ app.post('/register', function(req, res) {
                     rejectUnauthorized: false
                 }
             });
-            console.log('gmail out');
             mailOptions = {
                 from: secretData.email,
                 to: req.param('email'),
