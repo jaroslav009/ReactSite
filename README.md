@@ -1,6 +1,12 @@
 # ReactSite
 https://way-to-work.herokuapp.com/
 
+If you do not want to, the test user will be authenticated here
+```
+Email: nocogu@bit-degree.com
+Password: 1234
+```
+
 # Warning
 
 If you want to be able to authenticate and authorize open the file router/register.js find this code 
