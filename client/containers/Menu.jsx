@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link, IndexRoute }  from 'react-router-
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
+// Components
 import Home from './Home.jsx';
 import Register from './Register.jsx';
 import Login from './Login.jsx';
@@ -10,12 +11,25 @@ import Profile from './Profile.jsx';
 import Logout from './Logout.jsx';
 import User from './User.jsx';
 import Message from './Message.jsx';
-import CreateNews from '../components/Create_news.jsx';
+import CreateNews from './Create_news.jsx';
+
+// Begin include FontAwesome
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faStroopwafel } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faStroopwafel)
+// End include FontAwesome
 
 import cookieFunc from './cookieFunc'
+
+// Include action
 import authenticationAction from '../actions/authAction.jsx'
+
+// General styles
+import '../css/bootstrap.min.css';
 import '../css/main.scss'
 
+// Top menu
 class Menu extends Component {
     constructor(props) {
         super(props);
@@ -41,6 +55,7 @@ class Menu extends Component {
         .then((data) => {
             document.cookie = "verify=" + data.verifyToken;
             this.props.authenticationAction(data.verifyToken);
+            
         })
     }
     
@@ -131,8 +146,7 @@ class Menu extends Component {
 
 function mapStateToProps(state) {
 	return {
-        dataAuth: state.dataAuth,
-		verifyTokenAct: state.verifyTokenAct
+        verifyTokenAct: state.verifyTokenAct,
 	}
 }
 

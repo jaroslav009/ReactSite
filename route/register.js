@@ -65,7 +65,6 @@ app.post('/register', function(req, res) {
                     emailCorrect = true;
                 }
                 else {
-                    console.log('Email')
                     emailCorrect = false;
                 }
             })
@@ -77,7 +76,6 @@ app.post('/register', function(req, res) {
                 last_name = req.body.last_name,
                 country = req.body.country;
                 city = req.body.city;
-            console.log('city ' + city);
             var rand = jwt.sign({
                 id: email,
               }, storeData.secretKey, {
@@ -105,8 +103,8 @@ app.post('/register', function(req, res) {
             var transporter = nodemailer.createTransport({
                 service: "Gmail",
                 auth: {
-                    user: "", // Your email
-                    pass: "" // Pass for email
+                    user: "jaroslav.iliuk@gmail.com", //your email
+                    pass: "DDsdfg22$" // pass for email
                 },
                 tls: {
                     rejectUnauthorized: false
@@ -117,7 +115,11 @@ app.post('/register', function(req, res) {
                 from: "jaroslav.iliuk@gmail.com",
                 to: req.param('email'),
                 subject: 'Verify your data',
-                html : "Hello,<br> Please Click on the link to verify your email.<br><a href="+link+">Click here to verify</a>"
+                html : `
+                    Hello
+                    Please Click on the link to verify your email.
+                    <a href="+link+">Click here to verify</a>
+                `
             };
             transporter.sendMail(mailOptions, function(error, info){
                 if (error) {

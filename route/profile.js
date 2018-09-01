@@ -1,9 +1,6 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const multer = require('multer');
-const mongoose = require('mongoose');
-const crypto = require('crypto');
-const path = require('path');  
 const cloudinary = require('cloudinary');
 
 const storeData = require('./storeData');
@@ -37,8 +34,8 @@ var app = express();
 app.post('/upload', upload.single('image'), (req, res) => {
 	console.log('avatar ' + JSON.stringify(req.file))
 	console.log('token ' + JSON.stringify(req.body.token))
-	cloudinary.uploader.upload(req.file.path, function(result) { 
-		
+	cloudinary.uploader.upload(req.file.path, function(result) {
+	
 		jwt.verify(req.body.token, storeData.secretKey, function (err, decoded) {
 			console.log(decoded)
 			if(decoded === undefined) return false;
@@ -60,6 +57,7 @@ app.post('/upload', upload.single('image'), (req, res) => {
 				})
 			})
 		});
+
 	});
 	
 });

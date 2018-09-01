@@ -164,18 +164,20 @@ class Profile extends Component {
 	
 	async upload() {
 		this.setState({ avatar_submit: 'hidden', })
+		
 		var form = new FormData();
 		this.state.picture.token = cookieFunc.getCookie('token');
-		console.log(this.state.picture)
 		form.append('image', this.state.picture, this.state.picture.name);
 		form.append('token', cookieFunc.getCookie('token'));
 		form.append('name', this.state.picture.name);
-		console.log('get-picture1');
+		
+		// Transfer image to server
 		await fetch('/upload',  {
 			method: 'POST',
         	body: form
-		})
-		console.log('get data');
+		});
+
+		// Transfer data to server
 		var data = {
 			token: cookieFunc.getCookie('token')
 		}

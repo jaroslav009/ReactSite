@@ -6,32 +6,30 @@ var Schema = mongoose.Schema;
 var userSchema = new Schema({
     username: {
         type: String,
-        required: true
     },
     email: {
         type: String,
-        required: true,
-        unique: true
     },
     password: {
         type: String
     },
     first_name: {
         type: String,
-        default: ''
     },
     last_name: {
         type: String,
-        default: ''
     },
     country: {
         type: String,
-        default: ''
     },
     city: {
         type: String,
-        default: ''
     },
+    // News begin
+    title: String,
+    longDescription: String,
+    shortDescription: String,
+    // News end
     hash: String,
     salt: String,
     uid: String,
@@ -60,4 +58,4 @@ var User = mongoose.model("User", userSchema);
 
 userSchema.plugin(passportLocalMongoose);
 
-module.exports = User 
+module.exports = User
