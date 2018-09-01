@@ -7,6 +7,9 @@ var User = require('../models/schema')
 const storeData = require('./storeData');
 var app = express();
 
+// Include secret file
+const secretData = require('../secret');
+
 var usernameCorrect = false;
 var emailCorrect = false;
 
@@ -103,8 +106,8 @@ app.post('/register', function(req, res) {
             var transporter = nodemailer.createTransport({
                 service: "Gmail",
                 auth: {
-                    user: "jaroslav.iliuk@gmail.com", //your email
-                    pass: "DDsdfg22$" // pass for email
+                    user: secretData.email, //your email
+                    pass: secretData.password // pass for email
                 },
                 tls: {
                     rejectUnauthorized: false
@@ -112,13 +115,13 @@ app.post('/register', function(req, res) {
             });
             console.log('gmail out');
             mailOptions = {
-                from: "jaroslav.iliuk@gmail.com",
+                from: secretData.email,
                 to: req.param('email'),
                 subject: 'Verify your data',
                 html : `
                     Hello
                     Please Click on the link to verify your email.
-                    <a href="+link+">Click here to verify</a>
+                    <a href="${link}">Click here to verify</a>
                 `
             };
             transporter.sendMail(mailOptions, function(error, info){
