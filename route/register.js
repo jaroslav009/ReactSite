@@ -79,6 +79,7 @@ app.post('/register', function(req, res) {
                 last_name = req.body.last_name,
                 country = req.body.country;
                 city = req.body.city;
+            console.log(' username '+username)
             var rand = jwt.sign({
                 id: email,
               }, storeData.secretKey, {

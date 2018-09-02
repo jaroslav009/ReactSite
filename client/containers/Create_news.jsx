@@ -39,7 +39,8 @@ class CreateNews extends Component {
             visiblePopUp: false,
             picture: {
                 token: ""
-            }
+            },
+            idNews: "",
         }
     }
 
@@ -51,6 +52,7 @@ class CreateNews extends Component {
 
     longDescription() {
         let value = this.longDescriptionValue.value;
+        console.log(this.longDescriptionValue);
         this.setState({ longDescription: value });
     }
 
@@ -67,51 +69,42 @@ class CreateNews extends Component {
             1. ${this.state.title}
             2. ${this.state.longDescription}
             3. ${this.state.shortDescription}
-            4. ${JSON.stringify(this.props.transferFileReduce.file)}
+            4. ${JSON.stringify(this.props.transferFileReduce.file.name)}
         `)
         if(this.state.title === '' || this.state.longDescription === '' || this.state.shortDescription === '') {
             return console.log('not validation');
         }
-        transferFile(this.state.title);
-        console.log('transferFileReduce ' + JSON.stringify(this.props.transferFileReduce))
+        console.log('transferFileReduce ' + this.props.transferFileReduce.file.name)
 
-        var data = {
-            title: this.state.title,
-            longDescription: this.state.longDescription,
-            shortDescription: this.state.shortDescription
-        }
-        
         // Data transfer to server
+        var token = cookieFunc.getCookie('token');
+
+        var form = new FormData();
+		this.state.picture.token = cookieFunc.getCookie('token');
+		console.log(this.state.picture)
+		form.append('image', this.props.transferFileReduce.file, this.props.transferFileReduce.file.name);
+        form.append('token', cookieFunc.getCookie('token'));
+        form.append('idNews', this.state.idNews);
+        form.append('title', this.state.title);
+        form.append('longDescription', this.state.longDescription);
+        form.append('shortDescription', this.state.shortDescription);
+		form.append('name', this.props.transferFileReduce.file.name);
         await fetch('/create-news', {
             method: 'POST',
-			headers: {
-		   	 	'Content-Type': 'application/json',
-				'Accept': 'application/json'
-			},
-			body: JSON.stringify(data)
+			body: form
         })
         .then((response) => {
             return response.json();
         })
         .then((data) => {
-            console.log('data put')
+            // console.log('data put ' + data.idNews)
+            // this.setState({ idNews: data.idNews })
+            // console.log(`state idNews ${this.state.idNews}`);
         })
 
         // Show PopUp
         this.setState({
             visiblePopUp: true
-        })
-
-        // Image transfer to server
-        var form = new FormData();
-		this.state.picture.token = cookieFunc.getCookie('token');
-		console.log(this.state.picture)
-		form.append('image', this.props.transferFileReduce.file, this.props.transferFileReduce.file.name);
-		form.append('token', cookieFunc.getCookie('token'));
-		form.append('name', this.props.transferFileReduce.file.name);
-        await fetch('/img-news', {
-            method: 'POST',
-        	body: form
         })
     }
 

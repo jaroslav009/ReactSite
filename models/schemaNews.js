@@ -8,6 +8,9 @@ var userSchema = new Schema({
     title: String,
     longDescription: String,
     shortDescription: String,
+    idNews: String,
+    email: String,
+    img_url: String,
     // News end
 });
 

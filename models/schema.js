@@ -48,6 +48,12 @@ var userSchema = new Schema({
             default: ''
         }
     },
+    news: [
+        {   
+            idNews: String
+        }
+        
+    ],
     date: String,
     message: [
         
