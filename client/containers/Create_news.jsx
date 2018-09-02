@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Redirect } from 'react-router-dom';
 import {
     Grid, 
     Cell,
@@ -30,8 +31,9 @@ class CreateNews extends Component {
 
         // Submit
         this.submitHandle = this.submitHandle.bind(this);
-            // Hide submit
+        // Hide submit
         this.hide = this.hide.bind(this);
+
         this.state = {
             title: '',
             longDescription: '',
@@ -41,6 +43,7 @@ class CreateNews extends Component {
                 token: ""
             },
             idNews: "",
+            redirectNews: false
         }
     }
 
@@ -64,7 +67,7 @@ class CreateNews extends Component {
     // Functions input end
     // Function button begin
     async submitHandle() {
-
+        
         console.log(`
             1. ${this.state.title}
             2. ${this.state.longDescription}
@@ -106,6 +109,7 @@ class CreateNews extends Component {
         this.setState({
             visiblePopUp: true
         })
+        
     }
 
     // Hide Button PopUp
@@ -113,9 +117,15 @@ class CreateNews extends Component {
         this.setState({
             visiblePopUp: false
         })
+        this.setState({
+            redirectNews: true
+        })
     }
 
     render() {
+        if(this.state.redirectNews === true) {
+            return <Redirect to='/home' />
+        }
         const actions = [{
           id: 'dialog-ok',
           primary: true,

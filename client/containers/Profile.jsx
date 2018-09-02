@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { PureComponent } from 'react';
 import Popup from 'reactjs-popup';
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import SkyLight from 'react-skylight';
@@ -11,7 +11,7 @@ import cookieFunc from './cookieFunc.js';
 import '../css/profile.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
-class RenderLocation extends Component {
+class RenderLocation extends PureComponent {
 	render() {
 		if(this.props.country != '' || this.props.city != '') {
 			return <div>
@@ -26,7 +26,7 @@ class RenderLocation extends Component {
 	}
 }
 
-class Profile extends Component {
+class Profile extends PureComponent {
 	constructor(props) {
 		super(props);
 		this.changeData = this.changeData.bind(this);
