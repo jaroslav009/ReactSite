@@ -63,7 +63,7 @@ class CreateNews extends Component {
 
     // Functions input end
     // Function button begin
-   async submitHandle() {
+    async submitHandle() {
 
         console.log(`
             1. ${this.state.title}

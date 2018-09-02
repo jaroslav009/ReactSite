@@ -77,47 +77,4 @@ app.post('/create-news', upload.single('image'), (req, res) => {
     
 })
 
-app.post('/img-news', upload.single('image'), (req, res) => {
-    console.log('avatar ' + JSON.stringify(req.body.idNews))
-    // cloudinary.uploader.upload(req.file.path, function(result) {
-    jwt.verify(req.body.token, storeData.secretKey, function (err, decoded) {
-        if(err) return console.log(err);
-        User.findOne({email: decoded.username}, (err, user) => {
-            if(err) return console.log(err);
-            if(!user) return console.log('not exist user');
-        })
-    })
-    cloudinary.uploader.upload(req.file.path, function(result) {
-        console.log('result from cloudinary ', JSON.stringify(result))
-        News.find({}, (err, res) => {
-            console.log('res from News ' + JSON.stringify(typeof(res[0])));
-            // console.log('found element ', find(res, req.body.idNews))
-        })
-    })
-	// 	jwt.verify(req.body.token, storeData.secretKey, function (err, decoded) {
-	// 		console.log(decoded)
-	// 		if(decoded === undefined) return false;
-	// 		console.log(result)
-	// 		User.findOne({ email: decoded.username }, (err, user) => {
-	// 			if(err) return console.log(err);
-	// 			if(!user) return res.json({ err: 'not exist user' });
-	// 			console.log(JSON.stringify('result.url ' + result.url));
-
-	// 			cloudinary.v2.uploader.destroy(user.profile.name, function(error, result){console.log('result '+JSON.stringify(result))});
-
-	// 			user.profile.url = result.url;
-	// 			user.profile.name = result.public_id;
-
-	// 			user.save(function(err, user) {
-	// 				if(err) return console.log(err);
-	// 				console.log('user save ' + JSON.stringify(user.profile));
-	// 				res.json({image: user.profile.url, image_name: user.profile.name})
-	// 			})
-	// 		})
-	// 	});
-
-    // });
-    res.json({hello: 'world'})
-})
-
 module.exports = app;
