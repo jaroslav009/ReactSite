@@ -3,7 +3,7 @@ https://way-to-work.herokuapp.com/
 
 If you do not want to, the test user will be authenticated here
 ```
-Email: nocogu@bit-degree.com
+Email: dako@fidelium10.com
 Password: 1234
 ```
 
