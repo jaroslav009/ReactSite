@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 import { BrowserRouter as Router, Route, Link, IndexRoute }  from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
@@ -30,7 +30,7 @@ import '../css/bootstrap.min.css';
 import '../css/main.scss'
 
 // Top menu
-class Menu extends Component {
+class Menu extends PureComponent {
     constructor(props) {
         super(props);
         this.verifyUserHandle = this.verifyUserHandle.bind(this)

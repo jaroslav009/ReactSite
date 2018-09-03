@@ -77,4 +77,14 @@ app.post('/create-news', upload.single('image'), (req, res) => {
     
 })
 
+app.get('/general-news', (req,res) => {
+    News.find({}, (err, news) => {
+        if(err) return console.error(err);
+        console.log('news ' + JSON.stringify(news));
+        res.json({
+            news
+        });
+    })
+})
+
 module.exports = app;

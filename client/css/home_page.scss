@@ -1,6 +1,5 @@
-
 .home_container {
-    height: 100vh;
+    height: 93.5vh;
     /* background-image: -moz-linear-gradient( 90deg, #f3ad2b 0%, #f0be61 100%);
     background-image: -webkit-linear-gradient( 90deg, #f3ad2b 0%, #f0be61 100%);
     background-image: -ms-linear-gradient( 90deg, #f3ad2b 0%, #f0be61 100%); */
@@ -8,18 +7,24 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    padding-top: 30vh;
     text-align: center;
     color: #ffffff;
     font-family: 'Maven Pro', sans-serif;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+.home_container h1 {
+    font-size: 4em;
+}
 .home_container p {
-    margin: 8px 0 25px 0;
+    margin: 15px 0 30px 0;
     color: #ffffff;
     font-family: 'Maven Pro', sans-serif;
-    font-size: 18px;
+    font-size: 2.7em;
 }
 
 .button_start {
@@ -29,6 +34,7 @@
     text-align: center;
     color: #ffffff;
     transition: .5s ease;
+    text-decoration: none !important;
 }
 
 .button_start:hover {
