@@ -162,25 +162,9 @@
 .wrap-input100 {
 	width: 100%;
 	position: relative;
-	background-color: #f7f7f7;
-	border: 1px solid #e6e6e6;
 	border-radius: 10px;
 }
 
-
-/*---------------------------------------------*/
-/* .input100 {
-	font-family: Poppins-Regular;
-	color: #333333;
-	line-height: 1.2;
-	font-size: 18px;
-
-	display: block;
-	width: 100%;
-	background: transparent;
-	height: 60px;
-	padding: 0 20px;
-} */
 /*------------------------------------------------------------------
 [ Focus Input ]*/
 
@@ -213,7 +197,6 @@
 .input100:focus + .focus-input100 {
 	visibility: visible;
 	opacity: 1;
-
 	-webkit-transform: scale(1);
 	-moz-transform: scale(1);
 	-ms-transform: scale(1);
@@ -404,6 +387,7 @@
 .input100 {
 	width: 100%;
 	padding: 3px;
+	border: none;
 }
 
 .hidden {

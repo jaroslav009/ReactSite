@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {TextField} from 'react-md'
 
 import '../css/main.css';
 import '../css/util.css';
@@ -48,6 +49,7 @@ class RedirectClass extends Component {
 var styleeTitle = {
 	marginTop: '50px',
 };
+
 class Login extends Component {
 	constructor(props) {
 		super(props)
@@ -60,7 +62,8 @@ class Login extends Component {
 			correctEmail: false,
 			redirect: false,
 			stylePassword: 'input100',
-			styleEmail: 'input100'
+			styleEmail: 'input100',
+			errEmail: 'md-cell md-cell--bottom errTextField'
 		}
 	}
 
@@ -69,7 +72,7 @@ class Login extends Component {
 		var email = this.handle_email.value;
         var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,6}\.)?[a-z]{2,6}$/i;
 
-		console.log(this.props.dataAuth)
+		console.log(email)
 
         if (!pattern.test(email)) {
             return this.setState({styleEmail: 'input100 red_input', correctEmail: false})
@@ -136,16 +139,17 @@ class Login extends Component {
 							<div className="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
 								<RedirectClass redirect={this.state.redirect}/>
 								<form className="login100-form validate-form flex-sb flex-w">
-
-									<div className="p-t-31 p-b-9">
-										<span className="txt1">
-											Email
-										</span>
-									</div>
-									<div className="wrap-input100 validate-input">
-										<input className={this.state.styleEmail} type="email" onChange={this.handle_change_email} ref={(handle_email) => this.handle_email = handle_email} />
-									</div>
-									
+									<TextField
+										id="floating-center-title"
+										label="Email"
+										type="email"
+										lineDirection="center"
+										className={this.state.errEmail}
+										required
+										ref={(handle_email) => this.handle_email = handle_email}
+										onChange={this.handle_change_email}
+										error={true}
+									/>								
 
 									<div className="p-t-13 p-b-9">
 										<span className="txt1">

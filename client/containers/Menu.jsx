@@ -15,9 +15,9 @@ import CreateNews from './Create_news.jsx';
 
 // Begin include FontAwesome
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faStroopwafel } from '@fortawesome/free-solid-svg-icons'
+import { faStroopwafel, faEye } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faStroopwafel)
+library.add(faEye)
 // End include FontAwesome
 
 import cookieFunc from './cookieFunc'
