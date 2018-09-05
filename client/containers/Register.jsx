@@ -209,14 +209,33 @@ class Register extends Component {
 					<div className="container-login100">
 						<div className="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
 							<form className="login100-form validate-form flex-sb flex-w">
-								<div className="p-t-31 p-b-9">
+								<TextField
+									id="floating-center-title"
+									label="First name"
+									type="email"
+									lineDirection="center"
+									required
+									ref={(handle_first_name) => this.handle_first_name = handle_first_name} 
+									onChange={this.handle_change_first_name}
+								/>
+								{/* <div className="p-t-31 p-b-9">
 									<span className="txt1">
 										First name 
 									</span>
 								</div>
 								<div className="wrap-input100 validate-input"> 
 									<input type="text" className={this.state.style_first_name} ref={(handle_first_name) => this.handle_first_name = handle_first_name} onChange={this.handle_change_first_name}/>
-								</div>
+								</div> */}
+
+								<TextField
+									id="floating-center-title"
+									label="Last name"
+									type="email"
+									lineDirection="center"
+									required
+									ref={(handle_last_name) => this.handle_last_name = handle_last_name}
+									onChange={this.handle_change_last_name}
+								/>
 								<div className="p-t-31 p-b-9">
 									<span className="txt1">
 										Last name 
